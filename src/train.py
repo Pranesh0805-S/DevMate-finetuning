@@ -14,7 +14,7 @@ from transformers import (
 MODEL_NAME = "Qwen/Qwen3-0.6B"
 TRAIN_FILE = Path("data/train.jsonl")
 EVAL_FILE = Path("data/eval.jsonl")
-OUTPUT_DIR = Path("results/devmate-lora")
+OUTPUT_DIR = Path("results/devmate-lora-v2")
 MAX_LENGTH = 256
 
 

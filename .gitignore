@@ -1,4 +1,3 @@
-@"
 # Python
 __pycache__/
 *.py[cod]
@@ -12,6 +11,8 @@ env/
 
 # Secrets
 .env
+.env.*
+!.env.example
 
 # Model weights and caches
 *.safetensors
@@ -26,14 +27,14 @@ models/
 checkpoints/
 runs/
 wandb/
+results/
+
+# Local dataset backups and working copies
+data/*.v1-backup.jsonl
+data/train-expanded.jsonl
 
 # Editor and OS
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
-"@ | Set-Content .gitignore
-
-# Generated fine-tuning outputs and checkpoints
-results/devmate-lora/
-results/checkpoint-*/
