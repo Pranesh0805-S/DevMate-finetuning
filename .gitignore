@@ -1,0 +1,35 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+
+# Model weights and caches
+*.safetensors
+*.bin
+*.pt
+*.pth
+models/
+.cache/
+.cache_huggingface/
+
+# Training outputs
+checkpoints/
+runs/
+wandb/
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+"@ | Set-Content .gitignore
