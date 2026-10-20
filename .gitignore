@@ -33,3 +33,7 @@ wandb/
 .DS_Store
 Thumbs.db
 "@ | Set-Content .gitignore
+
+# Generated fine-tuning outputs and checkpoints
+results/devmate-lora/
+results/checkpoint-*/
