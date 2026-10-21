@@ -1,4 +1,4 @@
-
+﻿
 import json
 from pathlib import Path
 
@@ -14,7 +14,7 @@ from transformers import (
 MODEL_NAME = "Qwen/Qwen3-0.6B"
 TRAIN_FILE = Path("data/train.jsonl")
 EVAL_FILE = Path("data/eval.jsonl")
-OUTPUT_DIR = Path("results/devmate-lora-v2")
+OUTPUT_DIR = Path("results/devmate-lora-v3")
 MAX_LENGTH = 256
 
 
