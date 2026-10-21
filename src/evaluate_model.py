@@ -9,11 +9,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODEL_NAME = "Qwen/Qwen3-0.6B"
 EVAL_FILE = Path("data/eval.jsonl")
-OUTPUT_FILE = Path("results/model-comparison.jsonl")
+OUTPUT_FILE = Path("results/model-comparison-v3.jsonl")
 
 ADAPTERS = {
     "DEVMATE V1": Path("results/devmate-lora"),
     "DEVMATE V2": Path("results/devmate-lora-v2"),
+    "DEVMATE V3": Path("results/devmate-lora-v3"),
 }
 
 MAX_NEW_TOKENS = 256

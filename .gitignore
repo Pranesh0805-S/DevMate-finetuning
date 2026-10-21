@@ -38,3 +38,8 @@ data/train-expanded.jsonl
 .idea/
 .DS_Store
 Thumbs.db
+
+# Temporary V3 development backups
+data/train.before-v3.jsonl
+src/train.before-v3.py
+src/review_cli.before-batch.py
