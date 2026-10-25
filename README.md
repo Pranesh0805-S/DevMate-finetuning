@@ -81,7 +81,6 @@ DevMate-finetuning/
 ├── src/           # Dataset preparation, training and evaluation scripts
 ├── tests/         # Automated tests
 ├── results/       # Local training outputs, adapters and evaluation artifacts
-├── .env.example
 ├── .gitignore
 └── requirements.txt
 ```

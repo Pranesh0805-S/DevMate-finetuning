@@ -1,0 +1,42 @@
+[
+  {
+    "category": "python_fundamentals",
+    "prompt": "Explain the difference between a Python list and a set, with a short example."
+  },
+  {
+    "category": "debugging",
+    "prompt": "My Python function returns None when I expect a value. Explain the likely cause and show how to troubleshoot it."
+  },
+  {
+    "category": "exception_handling",
+    "prompt": "Write a Python example that converts user input to an integer and handles invalid input safely."
+  },
+  {
+    "category": "algorithms",
+    "prompt": "Write a Python function that returns the largest number in a non-empty list without using max(). Make sure it handles negative numbers."
+  },
+  {
+    "category": "git",
+    "prompt": "I committed changes on the wrong Git branch, but I have not pushed them. How can I recover safely without losing my work?"
+  },
+  {
+    "category": "api_debugging",
+    "prompt": "An API request returns HTTP 500. Explain the likely meaning and give me a systematic troubleshooting checklist."
+  },
+  {
+    "category": "json",
+    "prompt": "Show how to parse a JSON string in Python and handle invalid JSON using json.JSONDecodeError."
+  },
+  {
+    "category": "security",
+    "prompt": "Show how a Python application can read an API key from an environment variable without exposing the secret."
+  },
+  {
+    "category": "testing",
+    "prompt": "Write a minimal Python unit test for a function that adds two numbers, and show how to run it."
+  },
+  {
+    "category": "environment",
+    "prompt": "How can I verify which Python interpreter and package environment are being used by my project?"
+  }
+]

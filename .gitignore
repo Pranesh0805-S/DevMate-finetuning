@@ -12,7 +12,6 @@ env/
 # Secrets
 .env
 .env.*
-!.env.example
 
 # Model weights and caches
 *.safetensors
