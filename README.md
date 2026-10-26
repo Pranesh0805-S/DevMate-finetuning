@@ -120,7 +120,7 @@ The pinned dependencies include CPU-only PyTorch. Training speed and compatibili
 python -m pytest tests -q
 ```
 
-The current test suite checks dataset preparation behavior. Passing these tests does not verify model answer quality or independently validate the evaluation ratings.
+The test suite covers dataset preparation and review CLI behavior. Passing these tests does not verify model answer quality or independently validate the evaluation ratings.
 
 ## Training and Evaluation
 
