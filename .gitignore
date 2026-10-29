@@ -26,7 +26,27 @@ models/
 checkpoints/
 runs/
 wandb/
-results/
+
+# Ignore results by default
+results/*
+
+# Allow the V3 model card directory
+!results/devmate-lora-v3/
+
+# Ignore all V3 checkpoint contents
+results/devmate-lora-v3/checkpoint-*/
+
+# Allow only selected V3 model files
+!results/devmate-lora-v3/README.md
+!results/devmate-lora-v3/adapter_config.json
+!results/devmate-lora-v3/chat_template.jinja
+!results/devmate-lora-v3/tokenizer.json
+!results/devmate-lora-v3/tokenizer_config.json
+
+# Allow selected evaluation reports
+!results/evaluation-scorecard.json
+!results/final-scorecard.json
+!results/baseline.md
 
 # Local dataset backups and working copies
 data/*.v1-backup.jsonl

@@ -1,0 +1,39 @@
+{
+  "evaluation_file": "results\\model-comparison-v3.jsonl",
+  "question_count": 21,
+  "metrics_note": "These are automatic output diagnostics, not measures of factual correctness or overall model quality.",
+  "variants": {
+    "BASE MODEL": {
+      "total": 21,
+      "nonempty": 21,
+      "empty": 0,
+      "completion_pct": 100.0,
+      "avg_words": 153.66666666666666,
+      "code_block_answers": 17
+    },
+    "DEVMATE V1": {
+      "total": 21,
+      "nonempty": 21,
+      "empty": 0,
+      "completion_pct": 100.0,
+      "avg_words": 150.0952380952381,
+      "code_block_answers": 15
+    },
+    "DEVMATE V2": {
+      "total": 21,
+      "nonempty": 21,
+      "empty": 0,
+      "completion_pct": 100.0,
+      "avg_words": 70.61904761904762,
+      "code_block_answers": 7
+    },
+    "DEVMATE V3": {
+      "total": 21,
+      "nonempty": 21,
+      "empty": 0,
+      "completion_pct": 100.0,
+      "avg_words": 68.28571428571429,
+      "code_block_answers": 6
+    }
+  }
+}

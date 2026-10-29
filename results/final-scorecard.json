@@ -1,0 +1,46 @@
+{
+  "BASE MODEL": {
+    "answers": 21,
+    "rated_answers": 21,
+    "correctness": 67,
+    "relevance": 100,
+    "usefulness": 67,
+    "critical_errors": 11,
+    "earned_points": 234,
+    "max_points": 315,
+    "score_percentage": 74.29
+  },
+  "DEVMATE V1": {
+    "answers": 21,
+    "rated_answers": 21,
+    "correctness": 76,
+    "relevance": 99,
+    "usefulness": 74,
+    "critical_errors": 7,
+    "earned_points": 249,
+    "max_points": 315,
+    "score_percentage": 79.05
+  },
+  "DEVMATE V2": {
+    "answers": 21,
+    "rated_answers": 21,
+    "correctness": 79,
+    "relevance": 90,
+    "usefulness": 58,
+    "critical_errors": 4,
+    "earned_points": 227,
+    "max_points": 315,
+    "score_percentage": 72.06
+  },
+  "DEVMATE V3": {
+    "answers": 21,
+    "rated_answers": 21,
+    "correctness": 80,
+    "relevance": 90,
+    "usefulness": 61,
+    "critical_errors": 2,
+    "earned_points": 231,
+    "max_points": 315,
+    "score_percentage": 73.33
+  }
+}
