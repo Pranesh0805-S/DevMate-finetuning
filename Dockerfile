@@ -1,11 +1,12 @@
 
 FROM python:3.12-slim
 
+LABEL org.opencontainers.image.source="https://github.com/Pranesh0805-S/DevMate-finetuning"
+
 ENV PYTHONUNBUFFERED=1
 ENV HF_HOME=/models/cache
 
 WORKDIR /app
-
 # Install CPU-only PyTorch first.
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
