@@ -71,18 +71,20 @@ The client loads the Qwen3-0.6B base model and the DevMate V3 LoRA adapter, then
 
 ### Installation from a local checkout
 
-Create and activate a virtual environment, then install the project dependencies and client:
+Clone the repository and create a virtual environment:
 
 ```powershell
+git clone https://github.com/Pranesh0805-S/DevMate-finetuning.git
+cd DevMate-finetuning
+
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python -m pip install -e .
+python -m pip install -e ".[dev]"
 ```
 
-The editable installation is intended for development from a cloned repository.
+The editable installation installs the client and its development dependencies, including pytest and Ruff.
 
 ### Usage
 
@@ -146,10 +148,10 @@ The inference check successfully generated a Python function example. This verif
 Run the test suite from the repository root:
 
 ```powershell
-python -m pytest -q
+python -m pytest -q tests/
 ```
 
-**Latest local result: 22 tests passed.**
+**Latest recorded local result: 22 tests passed.**
 
 The tests cover selected dataset, review CLI, and Python client validation behavior. Passing tests does not independently validate the model's general intelligence or evaluation ratings.
 
@@ -171,7 +173,7 @@ GitHub Actions runs the automated checks on pushes and pull requests.
 
 The workflow installs the project dependencies, runs Ruff, and executes the test suite.
 
-The latest verified workflow completed successfully with both linting and automated tests passing.
+The latest recorded workflow completed successfully with both linting and automated tests passing.
 
 See the [GitHub Actions workflow history](https://github.com/Pranesh0805-S/DevMate-finetuning/actions) for run results.
 
@@ -213,7 +215,7 @@ DevMate-finetuning/
 ├── .github/
 │   └── workflows/           # GitHub Actions CI
 ├── pyproject.toml           # Package and Ruff configuration
-├── requirements.txt         # Project dependencies
+├── requirements.txt         # Pinned experiment environment
 └── .gitignore
 ```
 
@@ -239,20 +241,24 @@ If PowerShell prevents activation, use an approved local execution-policy settin
 
 ### 3. Install project dependencies
 
+The repository provides a pinned `requirements.txt` for the experiment environment and a `pyproject.toml` for the installable Python client.
+
+To install the pinned experiment environment and the client development tools:
+
 ```powershell
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python -m pip install -e .
+python -m pip install -e ".[dev]"
 ```
 
-The project requirements include CPU-only PyTorch. Training speed and compatibility depend on Python, installed packages, available memory, and hardware.
+The requirements file includes CPU-only PyTorch. Training speed and compatibility depend on Python, installed packages, available memory, and hardware.
 
-The editable client installation is required to import `devmate` from a checkout.
+The editable installation makes the `devmate` package importable from the local checkout.
 
 ### 4. Run the tests
 
 ```powershell
-python -m pytest -q
+python -m pytest -q tests/
 ```
 
 ### 5. Check code quality
@@ -272,7 +278,7 @@ Inspect the relevant script's configuration and input/output paths before runnin
 Typical project commands include:
 
 ```powershell
-python -m pytest -q
+python -m pytest -q tests/
 python src/evaluate_model.py
 python src/final_scorecard.py
 ```
