@@ -2,7 +2,7 @@
 
 **An experimental developer-focused language model built by fine-tuning Qwen3-0.6B with Low-Rank Adaptation (LoRA).**
 
-DevMate investigates how targeted training examples can influence a small language model’s responses to practical programming questions and developer workflows. The project combines parameter-efficient fine-tuning, structured evaluation, and automated testing to analyze model behavior and response quality.
+DevMate investigates how targeted training examples can influence a small language model’s responses to practical programming questions and developer workflows. The project combines parameter-efficient fine-tuning, structured evaluation, an installable Python client, and automated testing to analyze model behavior and response quality.
 
 > **Status:** Experimental research project. Evaluation results are preliminary and do not establish general improvements across tasks or domains.
 
@@ -12,6 +12,7 @@ DevMate investigates how targeted training examples can influence a small langua
 - Build a reproducible dataset preparation and training pipeline.
 - Compare the base model against successive DevMate versions.
 - Evaluate generated answers for technical correctness, relevance, practical usefulness, and critical errors.
+- Provide a small Python interface for loading the adapter and generating responses.
 - Document limitations and use evaluation findings to guide future experiments.
 
 ## Technology Stack
@@ -21,6 +22,7 @@ DevMate investigates how targeted training examples can influence a small langua
 - **Dataset tooling:** Hugging Face Datasets
 - **Training framework:** PyTorch
 - **Language:** Python
+- **Package build:** setuptools and `pyproject.toml`
 - **Testing:** pytest
 
 ## Development Environment
@@ -48,7 +50,53 @@ The V3 training run used:
 
 The reported training loss was 2.284. Evaluation loss reached 2.030 during the run. Loss values alone do not establish that answers are more accurate or useful.
 
-The trained adapter is stored locally under `results/devmate-lora-v3`. Model weights and generated results are excluded from version control where configured by `.gitignore`.
+The trained adapter is hosted in the [DevMate V3 Hugging Face repository](https://huggingface.co/Pranesh0805-S/DevMate-V3). That repository is currently private, so users must have access and authenticate with Hugging Face to load it. Model weights and generated results are excluded from version control where configured by `.gitignore`.
+
+## Python Client
+
+The repository includes a Python package named `devmate-client` (version `0.1.0`). The Python import name is `devmate`. The client loads the Qwen3-0.6B base model and the DevMate V3 LoRA adapter, then exposes a `generate()` method.
+
+### Install the package from a local checkout
+
+Create and activate a virtual environment, then install the project's runtime dependencies and client:
+
+```powershell
+python -m pip install -r requirements.txt
+python -m pip install -e .
+```
+
+Editable installation is intended for development from a cloned repository. A prebuilt wheel and source distribution can be produced with:
+
+```powershell
+python -m pip install build
+python -m build
+```
+
+These commands create distribution files under `dist/`. Building the client package does **not** bundle the Qwen base model or the DevMate adapter weights.
+
+### Use the client
+
+```python
+from devmate import DevMate
+
+model = DevMate()
+answer = model.generate("Explain Python functions with an example.")
+print(answer)
+```
+
+The first initialization downloads the required model files if they are not already cached. The Hugging Face adapter repository is private at present; users need permission to access it and must be authenticated. Loading the base model and adapter can use substantial memory, and CPU generation may be slow.
+
+The client defaults to `Qwen/Qwen3-0.6B`, the adapter `Pranesh0805-S/DevMate-V3`, and up to 180 new tokens per response. It uses CUDA when available and otherwise defaults to CPU; the base model is loaded with float32 weights.
+
+### Tests and package verification
+
+Run the repository test suite:
+
+```powershell
+python -m pytest -q
+```
+
+The existing suite passed **17 tests** during local verification. The client was also installed in editable mode, used for a successful generation test, built into a wheel and source distribution, and installed from the wheel. These checks verify selected software and loading paths, not general model answer quality.
 
 ## Evaluation Results
 
@@ -79,10 +127,13 @@ DevMate-finetuning/
 ├── configs/       # Training configuration
 ├── data/          # Dataset files
 ├── docs/          # Evaluation reports and documentation
-├── examples/      # Example resources
-├── src/           # Dataset preparation, training and evaluation scripts
+├── examples/      # Example resources, including a client usage example
+├── src/
+│   ├── devmate/   # Python client package
+│   └── ...        # Dataset preparation, training and evaluation scripts
 ├── tests/         # Automated tests
 ├── results/       # Local training outputs, adapters and evaluation artifacts
+├── pyproject.toml # Python package/build configuration
 ├── .gitignore
 └── requirements.txt
 ```
@@ -114,7 +165,7 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-The pinned dependencies include CPU-only PyTorch. Training speed and compatibility depend on the Python version, installed packages, available memory, and hardware.
+The pinned dependencies include CPU-only PyTorch. Training speed and compatibility depend on the Python version, installed packages, available memory, and hardware. The editable client installation command in the Python Client section is needed to import `devmate` from a checkout.
 
 ### 4. Run the tests
 
@@ -122,7 +173,7 @@ The pinned dependencies include CPU-only PyTorch. Training speed and compatibili
 python -m pytest tests -q
 ```
 
-The test suite covers dataset preparation and review CLI behavior. Passing these tests does not verify model answer quality or independently validate the evaluation ratings.
+The test suite covers dataset preparation and review CLI behavior. Passing these tests does not verify model answer quality or independently validate the evaluation ratings. The client usage example loads the model, so run it separately only when you want to download/load the model and have access to the private adapter repository.
 
 ## Training and Evaluation
 
@@ -148,6 +199,7 @@ The evaluation and scorecard commands require their expected input files to exis
 - Human-assigned ratings can be subjective.
 - Automated tests validate selected pipeline behavior, not general model intelligence.
 - Adapter weights and evaluation artifacts may need to be generated locally.
+- The Python client currently depends on access to the private Hugging Face adapter repository.
 
 Do not use DevMate's output as a substitute for testing code, checking official documentation, or reviewing security-sensitive changes.
 
@@ -158,7 +210,8 @@ Do not use DevMate's output as a substitute for testing code, checking official 
 - Build a separate held-out test set.
 - Add repeatable evaluation procedures and stronger validation.
 - Investigate V4 improvements using documented failure cases.
+- Add client-specific automated tests and consider a public package release after access, dataset, and licensing checks.
 
 ## License
 
-No license is declared here. Unless a license is added to the repository, reuse and redistribution permissions should not be assumed. The base model and its dependencies may have separate license terms.
+No license is declared here. Unless a license is added to the repository, reuse and redistribution permissions should not be assumed. The base model and its dependencies may have separate license terms. Before making the adapter public or publishing the package, verify the base model's license, dataset permissions, and intended terms for DevMate-specific work.
