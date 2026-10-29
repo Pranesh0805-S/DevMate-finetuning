@@ -1,17 +1,33 @@
-﻿# Dataset Provenance
+# Dataset Provenance
 
 ## Training Data
 
-The DevMate training dataset consists of conversational
-question-and-answer examples for programming assistance.
+The original training examples were generated using ChatGPT,
 
-The original examples were AI-generated, according to the
-project author's recollection. The original generation tool,
-prompts, and applicable output terms have not yet been verified.
+according to the project author's recollection. The exact
 
-Additional examples were added during later fine-tuning
-iterations. See the training scripts and experiment reports
-for details.
+prompts and conversation records have not been preserved or
+
+verified.
+
+
+
+OpenAI's published Terms of Use state that, as between the
+
+user and OpenAI and to the extent permitted by applicable law,
+
+the user owns their output. This does not establish that every
+
+example is free of third-party rights or that every applicable
+
+historical term has been verified.
+
+
+
+Terms reference:
+
+https://openai.com/policies/row-terms-of-use/
+
 
 ## Licensing and Limitations
 
