@@ -40,7 +40,6 @@ results/devmate-lora-v3/checkpoint-*/
 !results/devmate-lora-v3/README.md
 !results/devmate-lora-v3/adapter_config.json
 !results/devmate-lora-v3/chat_template.jinja
-!results/devmate-lora-v3/tokenizer.json
 !results/devmate-lora-v3/tokenizer_config.json
 
 # Allow selected evaluation reports
@@ -62,3 +61,12 @@ Thumbs.db
 data/train.before-v3.jsonl
 src/train.before-v3.py
 src/review_cli.before-batch.py
+
+# Python package build artifacts
+build/
+dist/
+
+# Generated package metadata
+src/*.egg-info/
+
+results/devmate-lora-v3/tokenizer.json
