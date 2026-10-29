@@ -65,7 +65,7 @@ The trained adapter is hosted in the [DevMate V3 Hugging Face repository](https:
 
 ## Python Client
 
-The repository includes an installable Python package named `devmate-client`, version `0.1.0`. Its Python import name is `devmate`.
+The repository includes an installable Python package named `pranesh-devmate-toolkit`, version `0.1.0`. Its Python import name is `devmate`.
 
 The client loads the Qwen3-0.6B base model and the DevMate V3 LoRA adapter, then provides a `generate()` method for text generation.
 
