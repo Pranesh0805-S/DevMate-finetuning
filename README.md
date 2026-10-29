@@ -1,8 +1,10 @@
-﻿# DevMate — Small LLM Fine-Tuning
+# DevMate — Small LLM Fine-Tuning
 
-DevMate is an experimental small language model project exploring supervised fine-tuning with Low-Rank Adaptation (LoRA). The project uses Qwen3-0.6B as its base model and evaluates whether targeted training examples can improve responses to practical programming and developer-workflow questions.
+**An experimental developer-focused language model built by fine-tuning Qwen3-0.6B with Low-Rank Adaptation (LoRA).**
 
-> **Status:** Experimental research project. Results are preliminary and should not be interpreted as proof of general model improvement.
+DevMate investigates how targeted training examples can influence a small language model’s responses to practical programming questions and developer workflows. The project combines parameter-efficient fine-tuning, structured evaluation, and automated testing to analyze model behavior and response quality.
+
+> **Status:** Experimental research project. Evaluation results are preliminary and do not establish general improvements across tasks or domains.
 
 ## Project Goals
 
