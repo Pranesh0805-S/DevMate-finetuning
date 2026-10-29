@@ -1,12 +1,9 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
 
 DEFAULT_BASE_MODEL = "Qwen/Qwen3-0.6B"
 DEFAULT_ADAPTER_MODEL = "Pranesh0805-S/DevMate-V3"
@@ -19,7 +16,7 @@ class DevMate:
         self,
         base_model: str = DEFAULT_BASE_MODEL,
         adapter_model: str = DEFAULT_ADAPTER_MODEL,
-        device: Optional[str] = None,
+        device: str | None = None,
         max_new_tokens: int = 180,
     ) -> None:
         if max_new_tokens < 1:

@@ -158,7 +158,6 @@ def main():
         raise FileNotFoundError(f"Review file not found: {REVIEW_FILE}")
     records = load_reviews()
     while True:
-        pending = [r for r in records if any(not complete(r, m) for m in VARIANTS)]
         done = sum(complete(r, m) for r in records for m in VARIANTS)
         total = len(records) * len(VARIANTS)
         print(f"\nDevMate Batch Review — {done}/{total} answers scored")

@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pytest
 
-
 MODULE_PATH = Path(__file__).resolve().parents[1] / "src" / "review_cli.py"
 SPEC = importlib.util.spec_from_file_location("review_cli", MODULE_PATH)
 review_cli = importlib.util.module_from_spec(SPEC)
